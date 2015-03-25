@@ -1,5 +1,7 @@
 # Mongodb to Amazon s3 Backup Script
 
+#### this is an improvement of the [original](https://github.com/RGBboy/mongodb-s3-backup) RGBoy script.
+
 ## Requirements
 
 * Running mongod process
@@ -12,9 +14,11 @@
 
 ## Usage
 
-`bash /path/to/backup.sh -u MONGODB_USER -p MONGODB_PASSWORD -k AWS_ACCESS_KEY -s AWS_SECRET_KEY -r S3_REGION -b S3_BUCKET`
+`bash /path/to/backup.sh -u MONGODB_USER -p MONGODB_PASSWORD -k AWS_ACCESS_KEY -s AWS_SECRET_KEY -r S3_REGION -b S3_BUCKET [-P MONGODB_PORT]`
 
 Where `S3_REGION` is in the format `ap-southeast-1`
+
+And port is optional while the default value is 27017
 
 ## Cron
 
@@ -27,8 +31,6 @@ Add the following line to `/etc/cron.d/db-backup` to run the script every day at
 # License 
 
 (The MIT License)
-
-Copyright (c) 2014 RGBboy &lt;l-_-l@rgbboy.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
