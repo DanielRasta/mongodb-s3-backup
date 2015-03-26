@@ -6,11 +6,16 @@
 
 * Running mongod process
 * mongodump
-* mongo
+* mongo (**Lower then 3.0** - this script uses `eval`)
 * openssl
 * tar
 * rm
-* curl
+* curl (using port 443 for https)
+
+###Access Control
+
+If authorization is enabled, you must have access to all actions on all resources in order to run eval. Providing such access is not recommended, but if your organization requires a user to run eval, create a role that grants anyAction on anyResource. Do not assign this role to any other user.
+
 
 ## Usage
 
@@ -18,15 +23,15 @@
 
 Where `S3_REGION` is in the format `ap-southeast-1`
 
-And port is optional while the default value is 27017
+And port is optional while the default value is 27017.
 
-## Cron
+<!--## Cron
 
 ### Daily
 
 Add the following line to `/etc/cron.d/db-backup` to run the script every day at midnight (UTC time) 
 
-    0 0 * * * root /bin/bash /path/to/backup.sh -u MONGODB_USER -p MONGODB_PASSWORD -k AWS_ACCESS_KEY -s AWS_SECRET_KEY -b S3_BUCKET
+    0 0 * * * root /bin/bash /path/to/backup.sh -u MONGODB_USER -p MONGODB_PASSWORD -k AWS_ACCESS_KEY -s AWS_SECRET_KEY -b S3_BUCKET [-P MONGODB_PORT]-->
 
 # License 
 
